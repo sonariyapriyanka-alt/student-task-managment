@@ -1,24 +1,43 @@
-import './App.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Login from './pages/Login';
-import Register from './pages/Register';
+  import {
+    createBrowserRouter,
+    Navigate,
+    NavLink,
+    RouterProvider,
+  } from "react-router-dom";
+  import Login from "./pages/Login";
+  import Register from "./pages/Register";
+  import Dashbord from "./pages/Dashbord";
+  import "./App.css";
+  const DefaultRoute = () => {
+    const authData = JSON.parse(localStorage.getItem("authData"));
 
-function App() {
-  const route = createBrowserRouter([
-    {
-    path:"/login",
-    element:<Login />
-  },
-  {
-    path:"/register",
-    element: <Register />
+    if (authData) {
+      return <Navigate to="/dashbord" replace />;
+    }
+    return <Navigate to="/register" replace />;
+  };
+
+  function App() {
+    const router = createBrowserRouter([
+      {
+        path: "/",
+        element: <DefaultRoute />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/dashbord",
+        element: <Dashbord />,
+      },
+    ]);
+
+    return <RouterProvider router={router} />;
   }
 
-
-  ]);
-  
-  return <RouterProvider router={route}/>
-  
-}
-
-export default App;
+  export default App;

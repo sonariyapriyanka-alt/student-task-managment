@@ -7,7 +7,7 @@ html,body {
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
-    background:linear-gradient(135deg, #0f0c29,#302b63,#2423e2);
+    background:linear-gradient(135deg, #0f0c29,#302b63,#23e2);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
